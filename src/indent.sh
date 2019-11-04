@@ -13,8 +13,9 @@ indent_pos() {
 	soft_indent() { repeat ' ' $((${1:-0}* ${2:-4})); }
 	# $1を$2だけインデントする
 	indent_part() {
-		[ -z "${2}" -o 0 -eq ${2} ] && echo "$1" || \
-			echo "${1}" | indent "$(soft_indent $indent)";
+		local indent=${2:-0}
+		[ 0 -eq $indent ] && echo "$1" || \
+			echo "$1" | indent "$(soft_indent $indent)";
 	}
 	for code in "$@"; do
 		result+="$(indent_part "$code" $indent)""\n"
