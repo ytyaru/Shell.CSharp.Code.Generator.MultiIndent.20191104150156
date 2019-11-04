@@ -10,7 +10,7 @@ indent_pos() {
 		[ 0 -lt $count ] && printf "$target"'%*s' $count;
 	}
 	# ソフトインデントを返す。$1: インデント数(省略時0) $2: 1インデントあたりのスペース数(省略時4)  
-	soft_indent() { repeat ' ' $((${1:-0}* ${2:-4})); }
+	soft_indent() { repeat ' ' $((${1:-0} * ${2:-4})); }
 	# $1を$2だけインデントする
 	indent_part() {
 		local indent=${2:-0}
